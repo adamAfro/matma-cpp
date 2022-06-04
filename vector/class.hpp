@@ -12,7 +12,7 @@ class Vector {
 
     stream << "[ ";
     for (unsigned int i = 0; i < v.count; i++)
-      stream << v.row[i] << " ";
+      stream << v.values[i] << " ";
     stream << "]";
 
     return stream;
@@ -21,13 +21,13 @@ class Vector {
   protected:
 
     unsigned int count;
-    double *row;
+    double *values;
 
   public:
 
     ~Vector() {
 
-      double * address = this -> row;
+      double * address = this -> values;
 
       delete address;
     }
@@ -35,15 +35,15 @@ class Vector {
     Vector(unsigned int length = 1, double *values = new double[] { 0 }) {
 
       this -> count = length;
-      this -> row = values;
+      this -> values = values;
     }
 
     Vector(const Vector &v) {
 
       this -> count = v.count;
-      this -> row = new double[v.count];
+      this -> values = new double[v.count];
       for (unsigned int i = 0; i < v.count; i++) {
-        this -> row[i] = v.row[i];
+        this -> values[i] = v.values[i];
       }
     }
 
@@ -58,7 +58,7 @@ class Vector {
       if (index >= (this -> count))
         throw "cannot get index from outside of a vector";
 
-      return this -> row[index];
+      return this -> values[index];
     }
 
     std::string read() {
@@ -69,7 +69,7 @@ class Vector {
 
       info << "[ ";
       for (unsigned int i = 0; i < this -> count; i++)
-        info << this -> row[i] << " ";
+        info << this -> values[i] << " ";
       info << "]";
 
       return info.str();
@@ -84,7 +84,7 @@ class Vector {
 
       Vector sum(v);
       for (unsigned int i = 0; i < (this -> count); i++)
-        sum.row[i] += this -> row[i];
+        sum.values[i] += this -> values[i];
 
       return sum;
     }
@@ -97,7 +97,7 @@ class Vector {
 
       Vector sum(v);
       for (unsigned int i = 0; i < (this -> count); i++)
-        sum.row[i] *= this -> row[i];
+        sum.values[i] *= this -> values[i];
 
       return sum;
     }
