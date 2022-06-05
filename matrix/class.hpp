@@ -21,10 +21,11 @@ class Matrix : public Vector {
 
   protected:
 
-    unsigned int amount;
+    unsigned int amount; // of columns
 
   public:
 
+    // basic constr
     Matrix(
       unsigned int rows = 1,
       unsigned int columns = 1,
@@ -34,6 +35,7 @@ class Matrix : public Vector {
       this -> amount = columns;
     }
 
+    // clone constr
     Matrix(const Matrix &v) {
 
       this -> count = v.count;
@@ -51,11 +53,13 @@ class Matrix : public Vector {
       return (dim[0] == this -> count && dim[1] == this -> amount);
     }
 
+    // yelds amount of elements in matrix
     const unsigned int length() {
 
       return this -> count * this -> amount;
     }
 
+    // changes give position value
     double revalue (unsigned int row, unsigned int column, double value) {
 
       if (row >= (this -> count) || column >= (this -> amount))
@@ -104,6 +108,7 @@ class Matrix : public Vector {
       return v;
     }
 
+    // dumps info
     std::string read() {
 
       std::stringstream info;
@@ -124,7 +129,7 @@ class Matrix : public Vector {
 
       unsigned int dim[2] = { m.count, m.amount };
       if (!this -> dims(dim))
-        throw "cannot sum matrixes of not equal dimensions";
+        throw "cannot sum matrices of not equal dimensions";
 
       Matrix sum(m);
       for (unsigned int i = 0; i < (this -> length()); i++)
