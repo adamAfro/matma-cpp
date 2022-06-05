@@ -13,6 +13,8 @@ Vector vplus = v1 + v2; // [ 2  0 3 ]
 Vector vprod = v1 * v2; // [ 1 -4 0 ]
 ```
 
+Do elementu wektora można odnieść się po jego indeksie (np. `double el = v1[1]`),
+jednak nie działa to na wskaźnikach, więc żeby zmienić wartość jest funkcja `revalue`.
 
 Wektor można wypisać w strumieniu, albo zebrać informacje na jego temat - `read()`
 różni się od strumienia tym, że ma też typ obiektu (tj. *wektor*) z długością

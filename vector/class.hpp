@@ -31,7 +31,7 @@ class Vector {
 
       double * address = this -> values;
 
-      delete address;
+      delete [] address; // no idea if works correctly
     }
 
     Vector(unsigned int length = 1, double *values = new double[] { 0 }) {
@@ -55,6 +55,17 @@ class Vector {
       return this -> count;
     }
 
+    double revalue (unsigned int index, double value) {
+
+      if (row >= (this -> count))
+        throw "cannot revalue element from outside of a vector";
+
+      double previous = this -> values[index];
+      this -> values[index] = value;
+
+      return previous;
+    }
+
     double operator [] (unsigned int index) {
 
       if (index >= (this -> count))
@@ -75,6 +86,17 @@ class Vector {
       info << "]";
 
       return info.str();
+    }
+
+    const double sum() {
+
+      double result = 0;
+      for (unsigned int i = 0; i < this -> count; i++) {
+
+        result += this -> values[i];
+      }
+
+      return result;
     }
 
 

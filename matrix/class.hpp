@@ -56,6 +56,18 @@ class Matrix : public Vector {
       return this -> count * this -> amount;
     }
 
+    double revalue (unsigned int row, unsigned int column, double value) {
+
+      if (row >= (this -> count) || column >= (this -> amount))
+        throw "cannot revalue element from outside of a matrix";
+
+      unsigned int index = row * this -> amount + column;
+      double previous = this -> values[index];
+      this -> values[index] = value;
+
+      return previous;
+    }
+
     // gets whole row as a vector
     Vector operator [] (unsigned int row) {
 
