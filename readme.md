@@ -1,16 +1,29 @@
 # Matematyczne Obiekty w C++
 
-## Wektory
+## Macierze
+
+Macierze bazują na wektorach
+
+```cpp
+namespace Matrix {
+
+  class Vector {...};
+
+  class Rect : public Vector {...}
+}
+```
+
+### Wektory
 
 Wektory to ciągi liczbowe o danej długości, które mogą być dodane,
 albo pomnożone skalarnie
 
 ```cpp
-Vector v1(3, new double [] { 1,  2, 3 });
-Vector v2(3, new double [] { 1, -2, 0 });
+Matrix::Vector v1(3, new double [] { 1,  2, 3 });
+Matrix::Vector v2(3, new double [] { 1, -2, 0 });
 
-Vector vplus = v1 + v2; // [ 2  0 3 ]
-Vector vprod = v1 * v2; // [ 1 -4 0 ]
+Matrix::Vector vplus = v1 + v2; // [ 2  0 3 ]
+Matrix::Vector vprod = v1 * v2; // [ 1 -4 0 ]
 ```
 
 Do elementu wektora można odnieść się po jego indeksie (np. `double el = v1[1]`),
@@ -24,15 +37,13 @@ cout << v1; // [ 1 2 3 ]
 cout << v1.read(); // vector(3)[ 1 2 3 ]
 ```
 
-### Macierze
+### Macierze Prostokątne
 
 Macierze to w sumie wektory, ale elementy mają oprócz pozycji *poziomej* też *pionową*,
 czyli można do nich dojść po dwóch zmiennych
 
 ```cpp
-class Matrix : public Vector {...}
-
-Matrix m1(3,3, new double [] {
+Matrix::Rect m1(3,3, new double [] {
   1, 2, 3,
   4, 5, 6,
   7, 8, 9
@@ -52,11 +63,11 @@ Też, dodawanie jest analogiczne - każdy element jest sumowany z innym na analo
 pozycji
 
 ```cpp
-Matrix mplus = m1 + m2;
+Matrix::Rect mplus = m1 + m2;
 ```
 
 Mnożenie jest takie jak mnożenie macierzy
 
 ```cpp
-Matrix mprod = m1 * m2;
+Matrix::Rect mprod = m1 * m2;
 ```

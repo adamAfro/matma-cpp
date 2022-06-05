@@ -2,8 +2,9 @@
 #define TEST
 
 #include <iostream>
-#include "vector/class.hpp"
-#include "matrix/class.hpp"
+
+#include "matrix/vector.hpp"
+#include "matrix/rect.hpp"
 
 using namespace std;
 
@@ -13,8 +14,8 @@ namespace Test {
 
     void get() {
 
-      Vector v1(3, new double [] { 1,  2, 3 });
-      Vector v2(3, new double [] { 1, -2, 0 });
+      Matrix::Vector v1(3, new double [] { 1,  2, 3 });
+      Matrix::Vector v2(3, new double [] { 1, -2, 0 });
 
       cout << "get:" << endl;
       cout << "v1[0]" << "=" << v1[0] << endl;
@@ -23,23 +24,23 @@ namespace Test {
 
     void sum() {
 
-      Vector v1(3, new double [] { 1,  2, 3 });
-      Vector v2(3, new double [] { 1, -2, 0 });
+      Matrix::Vector v1(3, new double [] { 1,  2, 3 });
+      Matrix::Vector v2(3, new double [] { 1, -2, 0 });
 
       cout << "sum:" << endl;
       cout << v1 << "+" << v2 << "=" << "?" << endl;
-      Vector vplus = v1 + v2;
+      Matrix::Vector vplus = v1 + v2;
       cout << v1 << "+" << v2 << "=" << vplus << endl;
     }
 
     void product() {
 
-      Vector v1(3, new double [] { 1,  2, 3 });
-      Vector v2(3, new double [] { 1, -2, 0 });
+      Matrix::Vector v1(3, new double [] { 1,  2, 3 });
+      Matrix::Vector v2(3, new double [] { 1, -2, 0 });
 
       cout << "product:" << endl;
       cout << v1 << "*" << v2 << "=" << "?" << endl;
-      Vector vprod = v1 * v2;
+      Matrix::Vector vprod = v1 * v2;
       cout << v1 << "*" << v2 << "=" << vprod << endl;
     }
   }
@@ -48,13 +49,13 @@ namespace Test {
 
     void print() {
 
-      Matrix m1(3,3, new double [] {
+      Matrix::Rect m1(3,3, new double [] {
         1, 2, 3,
         4, 5, 6,
         7, 8, 9
       });
 
-      Matrix m2(3,3, new double [] {
+      Matrix::Rect m2(3,3, new double [] {
          9, 0,  8,
         -7, 1, -5,
          4, 2,  3
@@ -68,13 +69,13 @@ namespace Test {
 
     void sum() {
 
-      Matrix m1(3,3, new double [] {
+      Matrix::Rect m1(3,3, new double [] {
         1, 2, 3,
         4, 5, 6,
         7, 8, 9
       });
 
-      Matrix m2(3,3, new double [] {
+      Matrix::Rect m2(3,3, new double [] {
          9, 0,  8,
         -7, 1, -5,
          4, 2,  3
@@ -82,19 +83,19 @@ namespace Test {
 
       cout << "sum:" << endl;
       cout << m1 << "+" << m2 << "=" << "?" << endl;
-      Matrix mplus = m1 + m2;
+      Matrix::Rect mplus = m1 + m2;
       cout << m1 << "+" << m2 << "=" << mplus << endl;
     }
 
     void product() {
 
-      Matrix m1(3,3, new double [] {
+      Matrix::Rect m1(3,3, new double [] {
         1, 2, 3,
         4, 5, 6,
         7, 8, 9
       });
 
-      Matrix m2(3,3, new double [] {
+      Matrix::Rect m2(3,3, new double [] {
          9, 0,  8,
         -7, 1, -5,
          4, 2,  3
@@ -102,7 +103,7 @@ namespace Test {
 
       cout << "product:" << endl;
       cout << m1 << "*" << m2 << "=" << "?" << endl;
-      Matrix mprod = m1 * m2;
+      Matrix::Rect mprod = m1 * m2;
       cout << m1 << "*" << m2 << "=" << mprod << endl;
     }
   }
