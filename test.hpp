@@ -85,26 +85,26 @@ namespace Test {
       Matrix mplus = m1 + m2;
       cout << m1 << "+" << m2 << "=" << mplus << endl;
     }
-    
-    // void product() {
-    //
-    //   Matrix m1(3,3, new double [] {
-    //     1, 2, 3,
-    //     4, 5, 6,
-    //     7, 8, 9
-    //   });
-    //
-    //   Matrix m2(3,3, new double [] {
-    //      9, 0,  8,
-    //     -7, 1, -5,
-    //      4, 2,  3
-    //   });
-    //
-    //   cout << "product:" << endl;
-    //   cout << m1 << "*" << m2 << "=" << "?" << endl;
-    //   Matrix mprod = m1 * m2;
-    //   cout << m1 << "*" << m2 << "=" << mprod << endl;
-    // }
+
+    void product() {
+
+      Matrix m1(3,3, new double [] {
+        1, 2, 3,
+        4, 5, 6,
+        7, 8, 9
+      });
+
+      Matrix m2(3,3, new double [] {
+         9, 0,  8,
+        -7, 1, -5,
+         4, 2,  3
+      });
+
+      cout << "product:" << endl;
+      cout << m1 << "*" << m2 << "=" << "?" << endl;
+      Matrix mprod = m1 * m2;
+      cout << m1 << "*" << m2 << "=" << mprod << endl;
+    }
   }
 }
 

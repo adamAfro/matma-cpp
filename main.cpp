@@ -8,6 +8,7 @@ int main(int argc, char const *argv[]) {
 
   Test::Matrixes::print();
   Test::Matrixes::sum();
+  Test::Matrixes::product();
 
   return 0;
 }

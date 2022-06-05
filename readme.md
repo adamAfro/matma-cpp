@@ -54,3 +54,9 @@ pozycji
 ```cpp
 Matrix mplus = m1 + m2;
 ```
+
+Mnożenie jest takie jak mnożenie macierzy
+
+```cpp
+Matrix mprod = m1 * m2;
+```

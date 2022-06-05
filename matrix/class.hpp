@@ -137,6 +137,38 @@ class Matrix : public Vector {
 
       return sum;
     }
+
+    // matrices product
+    Matrix operator * (Matrix &m) {
+
+      if (m.count != this -> amount)
+        throw "cannot product matrixes of different column-row dimensions";
+
+      Vector *columns[m.amount];
+      for (unsigned int j = 0; j < m.amount; j++) {
+
+        Vector *point = new Vector(m.column(j));
+
+        columns[j] = point;
+      }
+
+      Matrix product(this -> count, m.amount, new double [9]);
+      for (unsigned int i = 0; i < this -> count; i++) {
+
+        Vector row = this -> row(i);
+        for (unsigned int j = 0; j < m.amount; j++) {
+
+          Vector vprod = row * *columns[j];
+
+          product.revalue(i,j, vprod.sum());
+        }
+      }
+
+      for (unsigned int j = 0; j < m.amount; j++)
+        delete columns[j];
+
+      return product;
+    }
 };
 
 #endif
