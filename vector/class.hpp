@@ -18,6 +18,8 @@ class Vector {
     return stream;
   }
 
+  friend class Matrix;
+
   protected:
 
     unsigned int count;
